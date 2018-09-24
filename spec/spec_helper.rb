@@ -1,9 +1,8 @@
 require File.expand_path('../app/bookmark_app.rb', __dir__)
-# require File.expand_path('../lib/bookmarks.rb', __dir__)
 
-require 'rspec'
 require 'capybara'
 require 'capybara/rspec'
+require 'rspec'
 require 'simplecov'
 
 Capybara.app = BookmarkApp
@@ -47,6 +46,6 @@ RSpec.configure do |config|
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-# The settings below are suggested to provide a good initial experience
-# with RSpec, but feel free to customize to your heart's content.
+  # The settings below are suggested to provide a good initial experience
+  # with RSpec, but feel free to customize to your heart's content.
 end

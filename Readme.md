@@ -20,3 +20,32 @@ I want to be able to see a list with the names of the pages I've saved
 
 Domain Model
 ![User Story 1](./Domain_Model_User_Story_1.jpg)
+
+
+## How to use
+
+### To set up the project
+
+Clone this repository and then run:
+
+```
+bundle
+```
+
+### To run the Bookmark Manager app:
+
+```
+shotgun -p 4567
+```
+
+### To run tests:
+
+```
+rspec
+```
+
+### To run linting:
+
+```
+rubocop
+```
