@@ -1,10 +1,12 @@
 require File.expand_path('../app/bookmark_app.rb', __dir__)
+# require File.expand_path('../lib/bookmarks.rb', __dir__)
+
 require 'rspec'
 require 'capybara'
 require 'capybara/rspec'
 require 'simplecov'
 
-Capybara.app = Bookmarks
+Capybara.app = BookmarkApp
 
 # SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 #   SimpleCov::Formatter::Console,
