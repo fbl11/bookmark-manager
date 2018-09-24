@@ -1,11 +1,11 @@
 class Bookmark
-
-  def initialize
-    @list = { google: 'google.co.uk' }
-  end
-
-  def all
-    @list.map { |name, url| "#{name.to_s.capitalize}: #{url}" }
+  
+  def self.all
+    [
+      "http://www.makersacademy.com",
+      "http://www.destroyallsoftware.com",
+      "http://www.google.com"
+     ]
   end
 
 end
