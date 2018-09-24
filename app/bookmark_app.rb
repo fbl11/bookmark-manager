@@ -10,7 +10,7 @@ class BookmarkApp < Sinatra::Base
   get '/bookmarks' do
     @bookmarks = Bookmark.all
 
-    erb(:'bookmarks/index')
+    erb(:bookmarks)
   end
 
   run! if app_file == $PROGRAM_NAME
