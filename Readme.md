@@ -16,6 +16,10 @@ User stories
 As a user
 So I can remember pages I want to visit again 
 I want to be able to see a list with the names of the pages I've saved
+
+As a time-pressed user
+So that I can save a website
+I would like to add the site's address and title to bookmark manager
 ```
 
 Domain Model
