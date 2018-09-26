@@ -21,7 +21,7 @@ describe 'BookmarkApp Features' do
       visit('/bookmarks')
       expect(page.status_code).to eq(200)
       click_button('Add link')
-      expect(page).to have_content 'Add url here:'
+      expect(page).to have_content 'Add new url here:'
       fill_in('URL', with: 'http://www.amazon.com')
       click_button('Submit')
       expect(page).to have_content 'http://www.amazon.com'
