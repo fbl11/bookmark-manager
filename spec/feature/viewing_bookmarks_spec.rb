@@ -1,4 +1,4 @@
-describe 'BookmarkApp Features' do
+describe 'Features' do
   feature 'Viewing bookmarks' do
     scenario 'a user visits the index page' do
       visit('/')
@@ -9,9 +9,9 @@ describe 'BookmarkApp Features' do
   feature 'Viewing bookmarks' do
     scenario 'a user can see previously added bookmarks' do
       visit('/bookmarks')
-      bookmarks = Bookmark.all
       expect(page.status_code).to eq(200)
-      expect(bookmarks).to have_content 'http://www.makersacademy.com'
+      bookmarks = Bookmark.all
+      expect(bookmarks).to include 'http://www.makersacademy.com'
       expect(bookmarks).to have_content 'http://www.destroyallsoftware.com'
       expect(bookmarks).to have_content 'http://www.google.com'
     end
@@ -22,9 +22,9 @@ describe 'BookmarkApp Features' do
       expect(page.status_code).to eq(200)
       click_button('Add link')
       expect(page).to have_content 'Add new url here:'
-      fill_in('URL', with: 'http://www.amazon.com')
+      fill_in('URL', with: 'http://www.testbookmark.com')
       click_button('Submit')
-      expect(page).to have_content 'http://www.amazon.com'
+      expect(page).to have_content 'http://www.testbookmark.com'
     end
   end
 end
