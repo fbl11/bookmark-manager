@@ -26,7 +26,7 @@ class Bookmark
       connection = PG.connect(dbname: 'bookmark_manager')
     end
 
-    connection.exec("INSERT INTO bookmarks (url) VALUES('#{address}')") unless address == nil
+    connection.exec("INSERT INTO bookmarks (url) VALUES('#{address}')")
   end
 
 end
