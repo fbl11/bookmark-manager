@@ -8,8 +8,11 @@ class BookmarkApp < Sinatra::Base
   end
 
   get '/bookmarks' do
-    @bookmarks = Bookmark.all
 
+    @url = params[:URL]
+    p @url
+    Bookmark.add(@url) 
+    @bookmarks = Bookmark.all
     erb(:bookmarks)
   end
 
