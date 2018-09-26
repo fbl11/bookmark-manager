@@ -24,6 +24,7 @@ feature 'Viewing bookmarks' do
       expect(page).to have_content 'Add url here:'
       fill_in('URL', with: 'http://www.amazon.com')
       click_button('Submit')
+      expect(page).to have_content 'http://www.amazon.com'
     end
   end
 end
