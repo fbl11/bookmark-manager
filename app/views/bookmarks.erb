@@ -1,9 +1,10 @@
-<ul>
-  <% @bookmarks.each do |bookmark| %>
-    <li><%= bookmark %></li>
-  <% end %>
-
+<div>
+  <ul>
+    <% @bookmarks.each do |bookmark| %>
+      <li><%= bookmark %></li>
+    <% end %>
+  </ul>
   <form action="/create" method='get'>
     <input type="submit" value="Add link">
   </form>
-</ul>
+</div>

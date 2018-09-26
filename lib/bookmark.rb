@@ -2,7 +2,7 @@ require 'pg'
 # this class connects to a database
 class Bookmark
   def self.all
-    if ENV["RACK_ENV"] == 'test'
+    if ENV['RACK_ENV'] == 'test'
       connection = PG.connect(dbname: 'bookmark_manager_test')
     else
       connection = PG.connect(dbname: 'bookmark_manager')
@@ -19,8 +19,7 @@ class Bookmark
   end
 
   def self.add(address)
-
-    if ENV["RACK_ENV"] == 'test'
+    if ENV['RACK_ENV'] == 'test'
       connection = PG.connect(dbname: 'bookmark_manager_test')
     else
       connection = PG.connect(dbname: 'bookmark_manager')
@@ -28,5 +27,4 @@ class Bookmark
 
     connection.exec("INSERT INTO bookmarks (url) VALUES('#{address}')")
   end
-
 end
