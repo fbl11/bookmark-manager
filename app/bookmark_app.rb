@@ -13,5 +13,9 @@ class BookmarkApp < Sinatra::Base
     erb(:bookmarks)
   end
 
+  post '/create' do
+    erb :create
+  end
+
   run! if app_file == $PROGRAM_NAME
 end

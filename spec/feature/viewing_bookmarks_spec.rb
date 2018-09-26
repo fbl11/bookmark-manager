@@ -21,7 +21,7 @@ feature 'Viewing bookmarks' do
       visit('/bookmarks')
       expect(page.status_code).to eq(200)
       click_button('Add link')
-      expect(page).have_content 'Add url here:'
+      expect(page).to have_content 'Add url here:'
       fill_in('URL', with: 'http://www.amazon.com')
       click_button('Submit')
     end
