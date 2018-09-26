@@ -2,8 +2,12 @@ require File.expand_path('../app/bookmark_app.rb', __dir__)
 
 require 'capybara'
 require 'capybara/rspec'
+require 'pg'
 require 'rspec'
 require 'simplecov'
+
+ENV["RACK_ENV"] = 'test'
+
 
 Capybara.app = BookmarkApp
 
@@ -16,6 +20,15 @@ SimpleCov.start
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
+  config.before(:each) do
+    connection = PG.connect(dbname: 'bookmark_manager_test')
+    connection.exec('TRUNCATE TABLE bookmarks')
+    connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.makersacademy.com');")
+    connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.destroyallsoftware.com');")
+    connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.google.com');")
+  end
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
