@@ -19,13 +19,13 @@ class Bookmark
     table.map { |row| row['url'] }
   end
 
-  def self.add(address)
+  def self.add(url,title)
     if ENV['RACK_ENV'] == 'test'
       connection = PG.connect(dbname: 'bookmark_manager_test')
     else
       connection = PG.connect(dbname: 'bookmark_manager')
     end
-    connection.exec("INSERT INTO bookmarks (url) VALUES('#{address}')")
+    connection.exec("INSERT INTO bookmarks (url, title) VALUES('#{url}, #{title}')")
   end
 
   def self.valid?(address)

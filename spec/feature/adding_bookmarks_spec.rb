@@ -1,13 +1,26 @@
 describe 'Features' do
   feature 'Adding bookmarks' do
-    scenario 'a user adds a new bookmark' do
+    scenario 'user is send to create page on clicking add' do
       visit('/bookmarks')
+      click_button('Add')
       expect(page.status_code).to eq(200)
-      click_button('Add link')
-      expect(page).to have_content 'Add new url here:'
+      expect(page).to have_content 'Add title and url here:'
+    end
+    scenario 'a user adds a title' do
+      visit('/create')
+      expect(page.status_code).to eq(200)
       fill_in('URL', with: 'http://www.testbookmark.com')
+      fill_in('title', with: 'Testbookmark')
       click_button('Submit')
-      expect(page).to have_content 'http://www.testbookmark.com'
+      expect(page).to have_content 'Testbookmark'
+    end
+    scenario 'a user adds a url' do
+      visit('/create')
+      expect(page.status_code).to eq(200)
+      fill_in('URL', with: 'http://www.testbookmark.com')
+      fill_in('title', with: 'Testbookmark')
+      click_button('Submit')
+      expect(page).to have_link(nil, href: 'http://www.testbookmark.com')
     end
     scenario 'a user tries to add an invalid url and sees an error message' do
       visit('/create')

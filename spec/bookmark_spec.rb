@@ -13,8 +13,9 @@ describe Bookmark do
   end
 
   describe '.add' do
-    it 'saves a new bookmark' do
-      Bookmark.add('http://www.amazon.com')
+    #finish writing test for adding title and url
+    it 'saves title and url bookmark' do
+      Bookmark.add('http://www.amazon.com', 'Amazon')
       bookmarks = Bookmark.all
       expect(bookmarks).to include('http://www.amazon.com')
     end

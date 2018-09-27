@@ -23,7 +23,7 @@ class BookmarkApp < Sinatra::Base
 
   post '/create' do
     if Bookmark.valid?(params[:URL])
-      Bookmark.add(params[:URL])
+      Bookmark.add(params[:URL], params[:title])
     else
       flash[:warning] = 'This is not a valid URL'
     end
