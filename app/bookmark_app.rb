@@ -1,8 +1,13 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/bookmark'
 
 # This is the controller for our Bookmark app
 class BookmarkApp < Sinatra::Base
+
+  enable :sessions
+  register Sinatra::Flash
+
   get '/' do
     'Bookmark Manager'
   end
@@ -20,10 +25,10 @@ class BookmarkApp < Sinatra::Base
     if Bookmark.valid?(params[:URL])
       Bookmark.add(params[:URL])
     else
-      error message
+      flash[:warning] = 'This is not a valid URL'
     end
     redirect '/bookmarks'
   end
-
+  
   run! if app_file == $PROGRAM_NAME
 end

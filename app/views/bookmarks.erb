@@ -1,4 +1,9 @@
 <div>
+<% if flash[:warning] %>
+  <%= flash[:warning] %>
+  <a href="/bookmarks" class="close">&times;</a>
+<% end %>
+
   <ul>
     <% @bookmarks.each do |bookmark| %>
       <li><%= bookmark %></li>

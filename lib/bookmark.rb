@@ -29,9 +29,7 @@ class Bookmark
   end
 
   def self.valid?(address)
-    if (address =~ URI::regexp) == 0
-      return true 
-    end           
+    return true if (address =~ URI::regexp) == 0
     false   
   end
 end

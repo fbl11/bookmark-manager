@@ -14,7 +14,7 @@ describe 'Features' do
       expect(page.status_code).to eq(200)
       fill_in('URL', with: 'something invalid')
       click_button('Submit')
-      expect(page).to have_content 'This is not a valid url'
+      expect(page).to have_content 'This is not a valid URL'
     end
      scenario 'a user will not see an invalid url they tried to add in their bookmarks' do
       visit('/create')
