@@ -1,4 +1,5 @@
 require 'pg'
+require 'uri'
 # this class connects to a database
 class Bookmark
   def self.all
@@ -24,7 +25,13 @@ class Bookmark
     else
       connection = PG.connect(dbname: 'bookmark_manager')
     end
-
     connection.exec("INSERT INTO bookmarks (url) VALUES('#{address}')")
+  end
+
+  def self.valid?(address)
+    if (address =~ URI::regexp) == 0
+      return true 
+    end           
+    false   
   end
 end

@@ -9,5 +9,19 @@ describe 'Features' do
       click_button('Submit')
       expect(page).to have_content 'http://www.testbookmark.com'
     end
+    scenario 'a user tries to add an invalid url and sees an error message' do
+      visit('/create')
+      expect(page.status_code).to eq(200)
+      fill_in('URL', with: 'something invalid')
+      click_button('Submit')
+      expect(page).to have_content 'This is not a valid url'
+    end
+     scenario 'a user will not see an invalid url they tried to add in their bookmarks' do
+      visit('/create')
+      expect(page.status_code).to eq(200)
+      fill_in('URL', with: 'something invalid')
+      click_button('Submit')
+      expect(page).not_to have_content 'something invalid'
+    end
   end
 end

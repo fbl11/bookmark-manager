@@ -19,4 +19,11 @@ describe Bookmark do
       expect(bookmarks).to include('http://www.amazon.com')
     end
   end
+
+  describe '.valid?' do
+    it 'returns false if a bookmark is not valid' do
+      expect(Bookmark.valid?('This is not a valid url')).to eq(false)
+    end
+  end
+
 end

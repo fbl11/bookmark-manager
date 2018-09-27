@@ -17,7 +17,11 @@ class BookmarkApp < Sinatra::Base
   end
 
   post '/create' do
-    Bookmark.add(params[:URL])
+    if Bookmark.valid?(params[:URL])
+      Bookmark.add(params[:URL])
+    else
+      error message
+    end
     redirect '/bookmarks'
   end
 
